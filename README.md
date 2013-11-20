@@ -27,18 +27,18 @@ from sms.ru you want. Or you can just skip it and send SMS this way:
 
 This time SMS will be sent from default sender.
 
-onSend is Callback function with two parameters: (err, answer). If err is null
+`onSend` is Callback function with two parameters: `(err, answer)`. If err is null
 then you are lucky - your SMS has been successfully sent. If err is not null
 then SMS will not be delivered because of error occured while sending. You
-can view err.code (number error code) and err.message (human readable russian
+can view `err.code` (number error code) and `err.message` (human readable russian
 message). If err is null then answer is object like this:
 
-{
-    raw    : '100\n200007-300007\nbalance=199.03',
-    smsId  : [ '200007-300007' ],
-    status : '100',
-    balance: '199.03'
-}
+    {
+        raw    : '100\n200007-300007\nbalance=199.03',
+        smsId  : [ '200007-300007' ],
+        status : '100',
+        balance: '199.03'
+    }
 
 `raw` is just raw answer from sms.ru server. You probably don't need it until
 you perfectly know what you are doing (you do not need it even then).
@@ -52,8 +52,8 @@ receipient or not. You can do it simply calling one function:
 
     sms.status '200007-300007', onStatus
 
-'200007-300007' is SMS identifier from onSend()'s answer.smsId array. Note
-that sms.status() can work only with one ID string, not with arrays.
+'200007-300007' is SMS identifier from `onSend()`'s `answer.smsId` array. Note
+that `sms.status()` can work only with one ID string, not with arrays.
 
 onStatus is callback function (err, answer). If SMS can't be delivered at all
 (for any reason) then err will contain two fields: `code` (number code of
@@ -61,11 +61,11 @@ error) and `message` (human readable error description in russian). If SMS
 delivered or in progress then err is null and answer is key-value object with
 the following parameters:
 
-{
-    raw    : '102',
-    status : '102',
-    message: 'Сообщение отправлено (в пути)'
-}
+    {
+        raw    : '102',
+        status : '102',
+        message: 'Сообщение отправлено (в пути)'
+    }
 
 `raw` is raw answer from sms.ru which you don't need until debugging purposes.
 `status` is code which shows SMS delivering status. Normally you need statuses
@@ -87,6 +87,6 @@ If you want this library always stay actual you can:
 - send issues, pull requests
 
 
-@license Feel free to use or modify this lib as long as my @author tag remains
-@version 0.0.1
+@license Feel free to use or modify this lib as long as my @author tag remains  
+@version 0.0.1  
 @author Alexander Zubakov <developer@xinit.ru>
