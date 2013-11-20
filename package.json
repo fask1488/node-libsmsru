@@ -1,0 +1,16 @@
+{
+    "name"       : "libsmsru",
+    "version"    : "0.0.1",
+    "description": "Simple sms.ru API implementation library",
+    "main"       : "lib/libsmsru.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "sms",
+        "sms.ru",
+        "api"
+    ],
+    "author": "Alexander Zubakov <developer@xinit.ru>",
+    "license": "Feel free to use or modify this lib as long as my @author tag remains in code"
+}
