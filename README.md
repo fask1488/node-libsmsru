@@ -87,6 +87,6 @@ If you want this library always stay actual you can:
 - send issues, pull requests
 
 
-@license Feel free to use or modify this lib as long as my @author tag remains
-@version 0.0.2
-@author Alexander Zubakov <developer@xinit.ru>
+@license Feel free to use or modify this lib as long as my @author tag remains  
+@version 0.0.2  
+@author Alexander Zubakov <developer@xinit.ru>  
