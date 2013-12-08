@@ -148,6 +148,40 @@ authInfo =
     pass  : null
 
 
+# Translit. Need it because SMS.RU does not translit non-alphabet chars
+# and sends SMS with e.g. '—' as UTF-8, not ASCII, even after translating
+# alphabet symbols.
+# Note that this function does not provide real translit, it just replaces some
+# UTF-8 symbols that SMS.RU does not translits and removes other. After using
+# this function you can be sure that resulting SMS will be in ASCII, not in
+# UTF-8. So you can set length to 153 symbols and it guarantee that you send
+# exactly one SMS (anyway you should note that translit from SMS.RU can replace
+# one UTF-8 letter with two or more ASCII chars).
+#
+# @param string str String to translit.
+# @return string String after translit.
+#
+translit = (str) ->
+    replace_arr = [
+        [/—/g,  '-']
+        [/\|/g, ':']
+        [/€/g,  'E']
+        [/{/g,  '(']
+        [/}/g,  ')']
+        [/\\/g, '/']
+        [/\[/g, '(']
+        [/\]/g, ')']
+        [/~/g,  '-']
+        [/\^/g, '-']
+        [/`/g,  "'"]
+        [/\t/g, ' ']
+    ]
+    re_notabc = /[^абвгдеёжзийклмнопрстуфхцчшщъыьэюяa-z0-9@$\n_!"#%&'\(\)*+,\-\.\/:;<=>? ]/gi
+
+    replace_arr.forEach (re) -> str = str.replace(re[0], re[1])
+    str = str.replace re_notabc, ''
+
+
 # Authorisation data. Can be by login and password or by API ID.
 #
 # @param string login Login or API ID.
@@ -201,7 +235,14 @@ send = (number, text, options, onSend = null) ->
         options.password = authInfo.pass
 
     options.to   = number
-    options.text = text
+    options.text = if text instanceof Buffer then text.toString() else String(text)
+
+    # adjust translit. Need it because SMS.RU do not translit non-alphabet chars
+    # and sends SMS with e.g. '—' as UTF-8, not ASCII, even after translating
+    # alphabet symbols
+    if options.translit? and options.translit == 1
+        options.text = translit options.text
+
 
     # query string
     query = querystring.stringify options
