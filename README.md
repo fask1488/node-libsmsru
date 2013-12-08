@@ -5,25 +5,25 @@ Usage is as simple as it can be.
 Require library (in this example it located in ./lib/, but you can install it
 to your node_modules directory):
 
-    sms = require './lib/libsmsru'
+    var sms = require('./lib/libsmsru');
 
 You need to authorise with your API ID:
 
-    sms.auth '00000000-0000-0000-0000-000000000000'
+    sms.auth('00000000-0000-0000-0000-000000000000');
 
 or with your login and password:
 
-    sms.auth 'login', 'pa$$w0rd'
+    sms.auth('login', 'pa$$w0rd');
 
 Then just send SMS with text 'Пример SMS-сообщения' to number 79150000000 from
 sender xinit.ru:
 
-    sms.send '79150000000', 'Пример SMS-сообщения', { from: 'xinit.ru'}, onSend
+    sms.send('79150000000', 'Пример SMS-сообщения', { 'from': 'xinit.ru' }, onSend);
 
-Note that in options object { from: 'xinit.ru'} you can use all parameters
+Note that in options object { 'from': 'xinit.ru' } you can use all parameters
 from sms.ru you want. Or you can just skip it and send SMS this way:
 
-    sms.send '79150000000', 'Пример SMS-сообщения', onSend
+    sms.send('79150000000', 'Пример SMS-сообщения', onSend);
 
 This time SMS will be sent from default sender.
 
@@ -41,10 +41,10 @@ message). If err is null then answer is object like this:
     }
 
 `raw` is just raw answer from sms.ru server. You probably don't need it until
-you perfectly know what you are doing (you do not need it even then).  
+you perfectly know what you are doing (you do not need it even then).
 `smsId` is array of SMS identifiers. You need it if you want to check sent SMS
-status.  
-`status` is message sending status code. Nomally it should be always '100'.  
+status.
+`status` is message sending status code. Nomally it should be always '100'.
 `balance` is you account balance in russian RUB.
 
 When you successfully sent SMS, you probably want to know whether it came to
@@ -67,10 +67,10 @@ the following parameters:
         message: 'Сообщение отправлено (в пути)'
     }
 
-`raw` is raw answer from sms.ru which you don't need until debugging purposes.  
+`raw` is raw answer from sms.ru which you don't need until debugging purposes.
 `status` is code which shows SMS delivering status. Normally you need statuses
 '102' (means that SMS delivering is in progress) and '103' (means that SMS
-successfully delivered).  
+successfully delivered).
 `message` is human readable message in russian.
 
 That's all! You can also try well commented example `usecase.coffee`
@@ -87,6 +87,6 @@ If you want this library always stay actual you can:
 - send issues, pull requests
 
 
-@license Feel free to use or modify this lib as long as my @author tag remains  
-@version 0.0.1  
+@license Feel free to use or modify this lib as long as my @author tag remains
+@version 0.0.2
 @author Alexander Zubakov <developer@xinit.ru>
