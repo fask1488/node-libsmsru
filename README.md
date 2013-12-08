@@ -41,22 +41,22 @@ message). If err is null then answer is object like this:
     }
 
 `raw` is just raw answer from sms.ru server. You probably don't need it until
-you perfectly know what you are doing (you do not need it even then).
+you perfectly know what you are doing (you do not need it even then).  
 `smsId` is array of SMS identifiers. You need it if you want to check sent SMS
-status.
-`status` is message sending status code. Nomally it should be always '100'.
+status.  
+`status` is message sending status code. Nomally it should be always '100'.  
 `balance` is you account balance in russian RUB.
 
 When you successfully sent SMS, you probably want to know whether it came to
 receipient or not. You can do it simply calling one function:
 
-    sms.status '200007-300007', onStatus
+    sms.status('200007-300007', onStatus);
 
-'200007-300007' is SMS identifier from `onSend()`'s `answer.smsId` array. Note
+`'200007-300007'` is SMS identifier from `onSend()`'s `answer.smsId` array. Note
 that `sms.status()` can work only with one ID string, not with arrays.
 
-onStatus is callback function (err, answer). If SMS can't be delivered at all
-(for any reason) then err will contain two fields: `code` (number code of
+`onStatus` is callback function `(err, answer)`. If SMS can't be delivered at
+all (for any reason) then err will contain two fields: `code` (number code of
 error) and `message` (human readable error description in russian). If SMS
 delivered or in progress then err is null and answer is key-value object with
 the following parameters:
@@ -67,10 +67,10 @@ the following parameters:
         message: 'Сообщение отправлено (в пути)'
     }
 
-`raw` is raw answer from sms.ru which you don't need until debugging purposes.
+`raw` is raw answer from sms.ru which you don't need until debugging purposes.  
 `status` is code which shows SMS delivering status. Normally you need statuses
 '102' (means that SMS delivering is in progress) and '103' (means that SMS
-successfully delivered).
+successfully delivered).  
 `message` is human readable message in russian.
 
 That's all! You can also try well commented example `usecase.coffee`
