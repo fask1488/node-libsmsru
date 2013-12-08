@@ -18,9 +18,9 @@ or with your login and password:
 Then just send SMS with text 'Пример SMS-сообщения' to number 79150000000 from
 sender xinit.ru:
 
-    sms.send('79150000000', 'Пример SMS-сообщения', { 'from': 'xinit.ru' }, onSend);
+    sms.send('79150000000', 'Пример SMS-сообщения', { from: 'xinit.ru' }, onSend);
 
-Note that in options object { 'from': 'xinit.ru' } you can use all parameters
+Note that in options object { from: 'xinit.ru' } you can use all parameters
 from sms.ru you want. Or you can just skip it and send SMS this way:
 
     sms.send('79150000000', 'Пример SMS-сообщения', onSend);
