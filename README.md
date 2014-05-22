@@ -78,7 +78,7 @@ That's all! You can also try well commented example `usecase.coffee`
 
 
 If you want this library always stay actual you can:
-- donate via PayPal (more info: http://xinit.ru/)
+- donate (more info: http://xinit.ru/donate/)
 - use sms.ru from this access point: http://xinit.sms.ru/ (it makes no
   differences for you but allow me to get a little money)
 - send SMS messages with this library (here is my agent code which makes no
