@@ -1,16 +1,25 @@
 {
     "name"       : "libsmsru",
-    "version"    : "0.0.1",
+    "version"    : "0.0.2",
     "description": "Simple sms.ru API implementation library",
     "main"       : "lib/libsmsru.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test"      : "echo \"Error: no test specified\" && exit 1",
+        "prepublish": "coffee -cb test/*.coffee; coffee -cb lib/*.coffee"
+    },
+    "repository": {
+        "type": "git",
+        "url" : "https://github.com/kolonist/node-libsmsru"
+    },
+    "bugs": {
+        "url": "https://github.com/kolonist/node-libsmsru/issues"
     },
     "keywords": [
         "sms",
         "sms.ru",
-        "api"
+        "api",
+        "send"
     ],
     "author": "Alexander Zubakov <developer@xinit.ru>",
-    "license": "Feel free to use or modify this lib as long as my @author tag remains in code"
+    "license": "MIT"
 }
