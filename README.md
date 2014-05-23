@@ -63,10 +63,10 @@ message). If err is null then answer is object like this:
 ```
 
 `raw` is just raw answer from sms.ru server. You probably don't need it until
-you perfectly know what you are doing (you do not need it even then).
+you perfectly know what you are doing (you do not need it even then).  
 `smsId` is array of SMS identifiers. You need it if you want to check sent SMS
-status.
-`status` is message sending status code. Nomally it should be always '100'.
+status.  
+`status` is message sending status code. Nomally it should be always '100'.  
 `balance` is you account balance in russian RUB.
 
 When you successfully sent SMS, you probably want to know whether it came to
@@ -93,10 +93,10 @@ the following parameters:
 }
 ```
 
-`raw` is raw answer from sms.ru which you don't need until debugging purposes.
+`raw` is raw answer from sms.ru which you don't need until debugging purposes.  
 `status` is code which shows SMS delivering status. Normally you need statuses
 '102' (means that SMS delivering is in progress) and '103' (means that SMS
-successfully delivered).
+successfully delivered).  
 `message` is human readable message in russian.
 
 That's all! You can also try well commented example `usecase.coffee`
