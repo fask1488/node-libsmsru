@@ -2,7 +2,7 @@
     "name"       : "libsmsru",
     "version"    : "0.0.2",
     "description": "Simple sms.ru API implementation library",
-    "main"       : "lib/libsmsru.js",
+    "main"       : "./lib/libsmsru.js",
     "scripts": {
         "test"      : "echo \"Error: no test specified\" && exit 1",
         "prepublish": "coffee -cb test/*.coffee; coffee -cb lib/*.coffee"

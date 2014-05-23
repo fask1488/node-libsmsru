@@ -15,6 +15,7 @@ Usage is as simple as it can be.
 Require library (in this example it located in ./lib/, but you can install it
 to your node_modules directory):
 
+<<<<<<< HEAD
 ```JavaScript
 var sms = require('libsmsru');
 ```
@@ -30,20 +31,39 @@ or with your login and password:
 ```JavaScript
 sms.auth('login', 'pa$$w0rd');
 ```
+=======
+    var sms = require('./lib/libsmsru');
+
+You need to authorise with your API ID:
+
+    sms.auth('00000000-0000-0000-0000-000000000000');
+
+or with your login and password:
+
+    sms.auth('login', 'pa$$w0rd');
+>>>>>>> c3a2955e2fd1b49fa78bca09013974c8a3340387
 
 Then just send SMS with text 'Пример SMS-сообщения' to number 79150000000 from
 sender xinit.ru:
 
+<<<<<<< HEAD
 ```JavaScript
 sms.send('79150000000', 'Пример SMS-сообщения', { from: 'xinit.ru' }, onSend);
 ```
+=======
+    sms.send('79150000000', 'Пример SMS-сообщения', { from: 'xinit.ru' }, onSend);
+>>>>>>> c3a2955e2fd1b49fa78bca09013974c8a3340387
 
 Note that in options object { from: 'xinit.ru' } you can use all parameters
 from sms.ru you want. Or you can just skip it and send SMS this way:
 
+<<<<<<< HEAD
 ```JavaScript
 sms.send('79150000000', 'Пример SMS-сообщения', onSend);
 ```
+=======
+    sms.send('79150000000', 'Пример SMS-сообщения', onSend);
+>>>>>>> c3a2955e2fd1b49fa78bca09013974c8a3340387
 
 This time SMS will be sent from default sender.
 
@@ -72,9 +92,13 @@ status.
 When you successfully sent SMS, you probably want to know whether it came to
 receipient or not. You can do it simply calling one function:
 
+<<<<<<< HEAD
 ```JavaScript
 sms.status('200007-300007', onStatus);
 ```
+=======
+    sms.status('200007-300007', onStatus);
+>>>>>>> c3a2955e2fd1b49fa78bca09013974c8a3340387
 
 `'200007-300007'` is SMS identifier from `onSend()`'s `answer.smsId` array. Note
 that `sms.status()` can work only with one ID string, not with arrays.
@@ -104,7 +128,7 @@ That's all! You can also try well commented example `usecase.coffee`
 
 
 If you want this library always stay actual you can:
-- donate via PayPal (more info: http://xinit.ru/)
+- donate (more info: http://xinit.ru/donate/)
 - use sms.ru from this access point: http://xinit.sms.ru/ (it makes no
   differences for you but allow me to get a little money)
 - send SMS messages with this library (here is my agent code which makes no
@@ -113,6 +137,12 @@ If you want this library always stay actual you can:
 - send issues, pull requests
 
 
+<<<<<<< HEAD
 @license Feel free to use or modify this lib as long as my @author tag remains
 @version 0.0.2
 @author Alexander Zubakov <developer@xinit.ru>
+=======
+@license Feel free to use or modify this lib as long as my @author tag remains  
+@version 0.0.2  
+@author Alexander Zubakov <developer@xinit.ru>  
+>>>>>>> c3a2955e2fd1b49fa78bca09013974c8a3340387
